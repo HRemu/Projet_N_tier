@@ -1,0 +1,33 @@
+CREATE DATABASE stageetudiant;
+
+CREATE TABLE STUDENT(
+   id INT AUTO_INCREMENT NOT NULL,
+   fname VARCHAR(50) NOT NULL,
+   lname VARCHAR(50) NOT NULL,
+   PRIMARY KEY( id )
+);
+
+CREATE TABLE COUNTRY(
+   id INT AUTO_INCREMENT NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   PRIMARY KEY( id )
+);
+
+CREATE TABLE CITY(
+   id INT AUTO_INCREMENT NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   country_id INT NOT NULL,
+   PRIMARY KEY ( id ),
+   FOREIGN KEY ( country_id ) REFERENCES COUNTRY( id )
+);
+
+CREATE TABLE INTERNSHIP(
+   id INT AUTO_INCREMENT NOT NULL,
+   student_id INT NOT NULL,
+   city_id INT NOT NULL,
+   start_date DATE NOT NULL,
+   end_date DATE,
+   PRIMARY KEY ( id ),
+   FOREIGN KEY ( student_id ) REFERENCES STUDENT( id ),
+   FOREIGN KEY ( city_id ) REFERENCES CITY( id )
+);
