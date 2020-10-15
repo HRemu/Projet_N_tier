@@ -1,1 +1,0 @@
-Se connecter a un serveur qui tourne deja avant de lancer le script (obligatoire)
