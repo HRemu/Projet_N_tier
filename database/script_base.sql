@@ -1,3 +1,5 @@
+-- Creates the database from scratch. Fails if db already exists
+
 CREATE DATABASE IF NOT EXISTS stageetudiant;
 
 USE stageetudiant;
