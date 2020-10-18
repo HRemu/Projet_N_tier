@@ -1,7 +1,6 @@
 # Additional CSS
 
 div.bg_black {
-    /* Why does this NOT WORK? */
     background-color: black;
 }
 
