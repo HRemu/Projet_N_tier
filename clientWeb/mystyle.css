@@ -1,11 +1,8 @@
-# Additional CSS
+/* Additional CSS */
 
-div.bg_black {
+div.dark_theme {
     background-color: black;
-}
-
-div.bg_yellow {
-    background-color: yellow;
+    color: white;
 }
 
 div.bg_red {
@@ -20,8 +17,18 @@ div.bg_blue {
     background-color: blue;
 }
 
+div.bg_magenta {
+    background-color: magenta;
+}
+
+div.bg_yellow {
+    background-color: yellow;
+}
+
 div.bg_cyan {
     background-color: cyan;
 }
 
-
+div.bg_gray {
+    background-color: gray;
+}
