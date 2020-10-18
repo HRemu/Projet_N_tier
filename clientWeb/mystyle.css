@@ -1,0 +1,28 @@
+# Additional CSS
+
+div.bg_black {
+    /* Why does this NOT WORK? */
+    background-color: black;
+}
+
+div.bg_yellow {
+    background-color: yellow;
+}
+
+div.bg_red {
+    background-color: red;
+}
+
+div.bg_green {
+    background-color: green;
+}
+
+div.bg_blue {
+    background-color: blue;
+}
+
+div.bg_cyan {
+    background-color: cyan;
+}
+
+
