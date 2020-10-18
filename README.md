@@ -1,5 +1,5 @@
 Projet N-tiers
 
 - Base MySQL
-- Traitement Serveur (PHP, NodeJS, Python, Java ?)
+- Traitement Serveur (actuellement, on part plutôt sur Python)
 - Client Web (HTML, CSS, JS)
