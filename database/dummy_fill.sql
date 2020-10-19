@@ -1,10 +1,26 @@
--- Warning : DO NOT RUN THIS if the database already has entries
-
+-- Erasing entries then re-writing them!
 USE stageetudiant;
 
 
+-- DELETE complete
+DELETE FROM INTERNSHIP;
+DELETE FROM STUDENT;
+DELETE FROM GRADYEAR;
+DELETE FROM CITY;
+DELETE FROM COUNTRY;
+
+
+-- RESET auto-increment counter
+ALTER TABLE STUDENT AUTO_INCREMENT = 1;
+ALTER TABLE GRADYEAR AUTO_INCREMENT = 1;
+ALTER TABLE COUNTRY AUTO_INCREMENT = 1;
+ALTER TABLE CITY AUTO_INCREMENT = 1;
+ALTER TABLE INTERNSHIP AUTO_INCREMENT = 1;
+
+
+-- INSERT complete
 INSERT INTO GRADYEAR(label) VALUES
-	('CITISE1'), ('CITISE2'), ('FISE1'), ('FISE2'), ('FISE3');
+    ('CITISE1'), ('CITISE2'), ('FISE1'), ('FISE2'), ('FISE3');
 
 
 INSERT INTO STUDENT(lname, fname, gradyear_id) VALUES
@@ -19,9 +35,19 @@ INSERT INTO STUDENT(lname, fname, gradyear_id) VALUES
 
 
 INSERT INTO COUNTRY(country_name) VALUES
-	('USA'), ('CANADA'), ('GERMANY'), ('ITALY'), ('SOUTH KOREA');
+    ('USA'), ('CANADA'), ('GERMANY'), ('ITALY'), ('SOUTH KOREA');
 
 
 INSERT INTO CITY(city_name, country_id) VALUES
     ('WASHINGTON', 1), ('LAS VEGAS', 1), ('VANCOUVER', 2),
     ('FRANKFURT', 3), ('PALERMO', 4), ('SEOUL', 5);
+
+
+INSERT INTO INTERNSHIP(student_id, city_id, date_start, date_end) VALUES
+    (4, 6, '2018-06-04', '2018-08-16'),
+    (7, 4, '2018-06-01', '2018-07-01'),
+    (7, 4, '2019-06-03', '2018-08-02'),
+    (7, 3, '2019-09-04', '2020-02-21');
+
+
+
