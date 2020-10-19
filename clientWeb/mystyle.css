@@ -1,8 +1,36 @@
 /* Additional CSS */
 
-div.dark_theme {
+.dark_theme {
     background-color: black;
     color: white;
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    width: 100%;
+}
+
+ul li
+{
+    float: left;
+}
+
+ul li a
+{
+    display: block;
+    text-align: center;
+    padding: 0px 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+ul li a:hover {
+    color: red;
+    text-decoration: none;
 }
 
 div.bg_red {
@@ -17,18 +45,10 @@ div.bg_blue {
     background-color: blue;
 }
 
-div.bg_magenta {
-    background-color: magenta;
-}
-
 div.bg_yellow {
     background-color: yellow;
 }
 
-div.bg_cyan {
-    background-color: cyan;
-}
-
-div.bg_gray {
-    background-color: gray;
+form {
+    padding: 0px 0px 10px 0px;
 }
