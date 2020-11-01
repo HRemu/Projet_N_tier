@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS COUNTRY(
 CREATE TABLE IF NOT EXISTS CITY(
    city_id INT AUTO_INCREMENT NOT NULL,
    city_name VARCHAR(50) NOT NULL,
+   longitude INT NOT NULL,
+   latitude INT NOT NULL,
    country_id INT NOT NULL,
    PRIMARY KEY ( city_id ),
    FOREIGN KEY ( country_id ) REFERENCES COUNTRY( country_id )
