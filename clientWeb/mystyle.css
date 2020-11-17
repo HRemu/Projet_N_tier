@@ -40,6 +40,11 @@ div.bg_gray {
     color: white;
 }
 
+body {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 form {
     padding: 10px 0;
     margin: 0 auto;
@@ -53,5 +58,7 @@ label {
     padding: 0 15px 0 0;
 }
 
-
+img {
+    margin: 15px 0px;
+}
 
