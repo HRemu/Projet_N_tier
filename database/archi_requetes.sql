@@ -4,26 +4,25 @@
 -- SELECT queries
 
 -- Toutes les villes ayant accueilli un stage (de l'histoire)
-SELECT co.country, c.city_name, c.longitude, c.latitude
+SELECT co.country_name, c.city_name, c.longitude, c.latitude
 FROM INTERNSHIP i JOIN CITY c ON i.city_id = c.city_id
 JOIN COUNTRY co ON c.country_id = co.country_id;
 
 -- Toutes les villes avec un stage autour de la date {date_val}
-SELECT co.country, c.city_name, c.longitude, c.latitude
+SELECT co.country_name, c.city_name, c.longitude, c.latitude
 FROM INTERNSHIP i JOIN CITY c ON i.city_id = c.city_id
 JOIN COUNTRY co ON co.country_id = c.country_id
 WHERE (i.date_start <= date_val AND i.date_end >= date_val);
 
 -- Tous les etudiants appeles {fname, lname}
-SELECT i.city_id, i.date_start, i.date_end, s.fname, s.lname, g.label
-FROM INTERNSHIP i JOIN STUDENT s ON i.student_id = s.student_id
+SELECT s.fname, s.lname, g.label, i.city_id, i.date_start, i.date_end
+FROM INTERNSHIP i RIGHT JOIN STUDENT s ON i.student_id = s.student_id
 JOIN GRADYEAR g ON s.gradyear_id = g.gradyear_id
 WHERE (s.fname LIKE '%' + fname + '%' AND s.lname LIKE '%' + lname + '%');
 
 -- Tous les etudiants de la promo {gradyear}
-SELECT i.city_id, i.date_start, i.date_end, s.fname, s.lname, g.label
-FROM INTERNSHIP i JOIN STUDENT s ON i.student_id = s.student_id
-JOIN GRADYEAR g ON s.gradyear_id = g.gradyear_id
+SELECT s.fname, s.lname, g.label
+FROM STUDENT s JOIN GRADYEAR ON s.gradyear_id = g.gradyear_id
 WHERE g.label LIKE gradyear;
 
 
