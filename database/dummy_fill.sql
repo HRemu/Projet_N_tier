@@ -39,12 +39,12 @@ INSERT INTO COUNTRY(country_name) VALUES
 
 
 INSERT INTO CITY(city_name, longitude, latitude, country_id) VALUES
-    ('WASHINGTON', 38, -77, 1),
-    ('LAS VEGAS', 36, -115, 1),
-    ('VANCOUVER', 49, -123, 2),
-    ('FRANKFURT', 50, 8, 3),
-    ('PALERMO', 38, 13, 4),
-    ('SEOUL', 37, 127, 5);
+    ('WASHINGTON', -77.03637, 38.89511, 1),
+    ('LAS VEGAS', -115.13722, 36.17497, 1),
+    ('VANCOUVER', -123.11934, 49.24966, 2),
+    ('FRANKFURT', 8.68417, 50.11552, 3),
+    ('PALERMO', 13.33561, 38.13205, 4),
+    ('SEOUL', 126.9784, 37.566, 5);
 
 
 INSERT INTO INTERNSHIP(student_id, city_id, date_start, date_end) VALUES
