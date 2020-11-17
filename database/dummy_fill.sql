@@ -20,7 +20,7 @@ ALTER TABLE INTERNSHIP AUTO_INCREMENT = 1;
 
 -- INSERT complete
 INSERT INTO GRADYEAR(label) VALUES
-    ('CITISE1'), ('CITISE2'), ('FISE1'), ('FISE2'), ('FISE3');
+    ('2010'), ('2011'), ('2012'), ('2013'), ('2014');
 
 
 INSERT INTO STUDENT(lname, fname, gradyear_id) VALUES
