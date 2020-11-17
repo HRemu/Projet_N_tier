@@ -50,5 +50,8 @@ if __name__ == '__main__':
 	rep = request.addInternship(conn, "GIORNO", "GIOVANNA", "4", "WASHINGTON", '2018-06-04', '2018-08-16')
 	print(rep)
 	request.getInternships(conn)
+
+	## Test plot worldmap
+	request.drawCitiesOnMap(conn)
 	quit(conn)
 

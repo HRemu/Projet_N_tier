@@ -3,6 +3,11 @@
 import mysql.connector
 from mysql.connector import Error
 
+import pandas as pd
+import geopandas
+import matplotlib.pyplot as plt
+
+
 def getStudent(conn):
 	try:
 		cursor = conn.cursor()
@@ -77,4 +82,36 @@ def addInternship(conn, Fname, Lname, GradY, cityN, date_start, date_end):
 def decap_id(id_cap):
 	return id_cap[1:len(id_cap)-1]
 
+
+## Test stages plot sur la worldmap
+def drawCitiesOnMap(conn):
+        try:
+                cursor = conn.cursor()
+                cursor.execute( "SELECT longitude, latitude FROM CITY" )
+                cities = cursor.fetchall()
+                if (cities == None):
+                        print("AUCUNE VILLE")
+                        return 1
+        except Error as e:
+                print(e)
+                return -1
+
+        finally:
+                cursor.close()
+
+        longitude, latitude = [], []
+        for i in range(len(cities)):
+                longitude.append( float(cities[i][0]) )
+                latitude.append( float(cities[i][1]) )
+        
+        coord = pd.DataFrame({'Longitude' : longitude, 'Latitude' : latitude})
+        gdf = geopandas.GeoDataFrame(coord, geometry = geopandas.points_from_xy(coord.Longitude, coord.Latitude))
+
+        world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
+        ax = world.plot(color='white', edgecolor='black')
+
+        gdf.plot(ax=ax, color='red')
+        plt.show()
+
+        return 0
 
