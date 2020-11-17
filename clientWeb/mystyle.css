@@ -5,6 +5,11 @@
     color: white;
 }
 
+.active, .active:hover {
+    color: yellow;
+    pointer-events: none;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -30,20 +35,9 @@ ul li a:hover {
     text-decoration: none;
 }
 
-div.bg_red {
-    background-color: red;
-}
-
-div.bg_green {
-    background-color: green;
-}
-
-div.bg_blue {
-    background-color: blue;
-}
-
-div.bg_yellow {
-    background-color: yellow;
+div.bg_gray {
+    background-color: #9caeaf;
+    color: white;
 }
 
 form {
