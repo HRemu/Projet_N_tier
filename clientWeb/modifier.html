@@ -21,90 +21,115 @@
       </ul>
     </header>
     
-    <!-- Main Container for the "blocks" -->
-    <div class="container">
-      <div class="row">
-      
-        <!-- Block 1 -->
-        <div class="col-xs-12 col-sm-4 bg_gray">
-          <h1>Container 1</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin
-          nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue
-          mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellientesque
-          habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maeca
-          pharetra convallis posuere</p>
-        </div>
-        
-        <!-- Block 2 -->
-        <div class="col-xs-12 col-sm-4 bg_gray">
-          <h1>Container 2</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin
-          nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue
-          mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellientesque
-          habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maeca
-          pharetra convallis posuere</p>
-        </div>
-        
-        <!-- Block 3 -->
-        <div class="col-xs-12 col-sm-4 bg_gray">
-          <h1>Container 3</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin
-          nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue
-          mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellientesque
-          habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maeca
-          pharetra convallis posuere</p>
-        </div>
-        
-      </div>
-    </div> 
+    <!-- Declaration for student add / modify query -->
+    <div class="container-fluid bg_green">
+      <p>Ajouter un élève</p>
+    </div>
     
     <!-- Form in Container -->
-    <div class="container bg_gray text-center">
-      <form name="myform" action="#" onsubmit="return validateFormOnSubmit(this)">
-        <div class="space_out">
-	  <label for="fname">Nom :</label>
-	  <input type="text" id="fname" name="fname" value="John">
-	</div>
-	
-	<div class="space_out">
-	  <label for="lname">Prénom :</label>
-	  <input type="text" id="lname" name="lname" value="Doe">
-	</div>
-	
-	<div class="space_out">
-	  <label for="fname">Ville :</label>
-	  <input type="text" id="city" name="city" value="Bordeaux">
-	</div>
-	
-	<div class="space_out">
-	  <label for="lname">Pays :</label>
-	  <input type="text" id="country" name="country" value="France">
-	</div>
-	
-	<div class="space_out">
-	  <label for="gradyear">Promotion :</label>
-	  <select name="gradyear" id="gradyear">
-	    <option value="citise1"> 2010 </option>
-	    <option value="citise2"> 2011 </option>
-	    <option value="fise1"> 2012 </option>
-	    <option value="fise2"> 2013 </option>
-	    <option value="fise3"> 2014 </option>
-	  </select>
-	</div>
-	
-	<div class="space_out">
-	  <label for="start_date">Date début :</label>
-	  <input type="date" id="start_date" name="start_date">
-	</div>
-	
-	<div class="space_out">
-	  <label for="end_date">Date fin :</label>
-	  <input type="date" id="end_date" name="end_date">
-	</div>
-	
-	<div class="space_out">
-	  <input type="submit" value="Envoyer">
-	</div>
+    <div class="container-fluid bg_gray text-center">
+      <form name="s_form" action="#" onsubmit="return studentQuery(this)">
+        
+        <div class="form-group">
+          <label for="s_fname">Prénom :</label>
+          <input type="text" id="s_fname" name="s_fname" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="s_lname">Nom :</label>
+          <input type="text" id="s_lname" name="s_lname" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="s_gradyear">Promo :</label>
+          <input type="text" id="s_gradyear" name="s_gradyear" value="">
+        </div>
+        
+        <input type="submit" value="Envoyer">
+      
+      </form>
+    </div>
+    
+    <!-- Declaration for city add / modify query -->
+    <div class="container-fluid bg_green">
+      <p>Ajouter une ville</p>
+    </div>
+    
+    <!-- Form in Container -->
+    <div class="container-fluid bg_gray text-center">
+      <form name="c_form" action="#" onsubmit="return cityQuery(this)">
+        
+        <div class="form-group">
+          <label for="c_city">Ville :</label>
+          <input type="text" id="c_city" name="c_city" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="c_country">Pays :</label>
+          <input type="text" id="c_country" name="c_country" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="c_lon">Longitude :</label>
+          <input type="text" id="c_lon" name="c_lon" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="c_lat">Latitude :</label>
+          <input type="text" id="c_lat" name="c_lat" value="">
+        </div>
+        
+        <input type="submit" value="Envoyer">
+      
+      </form>
+    </div>
+    
+    <!-- Declaration for internship add / modify query -->
+    <div class="container-fluid bg_green">
+      <p>Ajouter un stage</p>
+    </div>
+    
+    <!-- Form in Container -->
+    <div class="container-fluid bg_gray text-center">
+      <form name="i_form" action="#" onsubmit="return internshipQuery(this)">
+        
+        <div class="form-group">
+          <label for="i_fname">Prénom :</label>
+          <input type="text" id="i_fname" name="i_fname" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="i_lname">Nom :</label>
+          <input type="text" id="i_lname" name="i_lname" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="i_gradyear">Promo :</label>
+          <input type="text" id="i_gradyear" name="i_gradyear" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="i_city">Ville :</label>
+          <input type="text" id="i_city" name="i_city" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="i_country">Pays :</label>
+          <input type="text" id="i_country" name="i_country" value="">
+        </div>
+        
+        <div class="form-group">
+          <label for="i_start_date">Date de début :</label>
+          <input type="date" id="i_start_date" name="i_start_date">
+        </div>
+        
+        <div class="form-group">
+          <label for="i_end_date">Date de fin :</label>
+          <input type="date" id="i_end_date" name="i_end_date">
+        </div>
+        
+        <input type="submit" value="Envoyer">
+      
       </form>
     </div>
     

@@ -40,9 +40,18 @@ div.bg_gray {
     color: white;
 }
 
+div.bg_green {
+    background-color: #00ce00;
+    color: white;
+}
+
 body {
     padding-right: 0px;
     padding-left: 0px;
+}
+
+.container-fluid {
+    padding: 5px 7px;
 }
 
 form {
@@ -50,15 +59,17 @@ form {
     margin: 0 auto;
 }
 
-.space_out {
-    padding: 10px 0;
+.form-inline > * {
+   margin: 5px;
 }
 
-label {
-    padding: 0 15px 0 0;
+label, input[type = text]  {
+   margin-right: 15px;
 }
 
 img {
     margin: 15px 0px;
 }
+
+
 

@@ -1,33 +1,62 @@
 /* JS functions file */
 
-function validateFormOnSubmit() {
+function indexQuery() {
     
     fname = document.getElementById("fname").value
     lname = document.getElementById("lname").value
     gradyear = document.getElementById("gradyear").value
-    city = document.getElementById("city").value
-    country = document.getElementById("country").value
-    start_date = document.getElementById("start_date").value
-    end_date = document.getElementById("end_date").value
     
-    d1 = new Date(start_date)
-    d2 = new Date(end_date)
-    
-    resultat = "";
-    if (d1 < d2) {
-        resultat += "Prénom : " + fname + "\n";
-        resultat += "Nom : " + lname + "\n";
-        resultat += "Promotion : " + gradyear + "\n";
-        resultat += "Ville : " + city + "\n";
-        resultat += "Pays : " + country + "\n";
-        resultat += "Début : " + start_date + "\n";
-        resultat += "Fin : " + end_date;
-    }
-    else {
-        resultat += "Erreur comparaison dates";
-    }
+    resultat = "Vous avez lancé une requête avec les paramètres suivants :\n";
+    resultat += "[prénom : '" + fname + "' | nom : '" + lname + "' | promo : '" + gradyear + "']";
     
     alert(resultat);
 }
+
+
+function studentQuery() {
+    
+    fname = document.getElementById("s_fname").value
+    lname = document.getElementById("s_lname").value
+    gradyear = document.getElementById("s_gradyear").value
+    
+    resultat = "Vous avez créé un étudiant dans la base :\n";
+    resultat += fname + " " + lname + " -- promo(" + gradyear + ")";
+    
+    alert(resultat);
+}
+
+
+function cityQuery() {
+    
+    city = document.getElementById("c_city").value
+    country = document.getElementById("c_country").value
+    lon = document.getElementById("c_lon").value
+    lat = document.getElementById("c_lat").value
+    
+    resultat = "Vous avez créé une ville dans la base :\n";
+    resultat += city + ", " + country + " -- coord(" + lon + " , " + lat + ")";
+    
+    alert(resultat);
+}
+
+
+function internshipQuery() {
+    
+    fname = document.getElementById("i_fname").value
+    lname = document.getElementById("i_lname").value
+    gradyear = document.getElementById("i_gradyear").value
+    city = document.getElementById("i_city").value
+    country = document.getElementById("i_country").value
+    start = document.getElementById("i_start_date").value
+    end = document.getElementById("i_end_date").value
+    
+    resultat = "Vous avez créé un stage dans la base :\n";
+    resultat += "DE " + fname + " " + lname + " -- promo(" + gradyear + ")\n"
+    resultat += "A " + city + ", " + country + "\n"
+    resultat += "ENTRE " + start + " ET " + end;
+    
+    alert(resultat);
+}
+
 
 
