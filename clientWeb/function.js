@@ -2,12 +2,11 @@
 
 function indexQuery() {
     
-    fname = document.getElementById("fname").value
-    lname = document.getElementById("lname").value
+    name = document.getElementById("name").value
     gradyear = document.getElementById("gradyear").value
     
     resultat = "Vous avez lancé une requête avec les paramètres suivants :\n";
-    resultat += "[prénom : '" + fname + "' | nom : '" + lname + "' | promo : '" + gradyear + "']";
+    resultat += "[nom : '" + name + "' | promo : '" + gradyear + "']";
     
     alert(resultat);
 }
