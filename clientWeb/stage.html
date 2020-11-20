@@ -29,47 +29,67 @@
     </div>
     
     <!-- Form in Container -->
-    <div class="container-fluid bg_gray text-center">
-      <form name="i_form" action="#" onsubmit="return internshipQuery(this)">
+    <div class="container-fluid bg_gray">
+      <div class="row">
+        <div class="col-sm-4"></div>
         
-        <div class="form-group">
-          <label for="i_fname">Prénom :</label>
-          <input type="text" id="i_fname" name="i_fname" value="">
+        <div class="col-sm-4">
+          <form name="i_form" action="#" onsubmit="return internshipQuery(this)">
+            <div class="form-group row">
+              <label for="i_fname" class="col-sm-4 col-form-label">Prénom</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_fname" name="i_fname" placeholder="Ex: John">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="i_lname" class="col-sm-4 col-form-label">Nom</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_lname" name="i_lname" placeholder="Ex: Doe">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="i_gradyear" class="col-sm-4 col-form-label">Promo</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_gradyear" name="i_gradyear" placeholder="Ex: 2007">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="i_city" class="col-sm-4 col-form-label">Ville</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_city" name="i_city" placeholder="Ex: Las Vegas">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="i_country" class="col-sm-4 col-form-label">Pays</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_country" name="i_country" placeholder="Ex: USA">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="i_start_date" class="col-sm-4 col-form-label">Date de début</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_start_date" name="i_start_date" placeholder="DD/MM/YYYY">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="i_end_date" class="col-sm-4 col-form-label">Date de fin</label>
+              <div class="col-sm-8">
+                <input type="text" id="i_end_date" name="i_end_date" placeholder="DD/MM/YYYY">
+              </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
         </div>
         
-        <div class="form-group">
-          <label for="i_lname">Nom :</label>
-          <input type="text" id="i_lname" name="i_lname" value="">
-        </div>
-        
-        <div class="form-group">
-          <label for="i_gradyear">Promo :</label>
-          <input type="text" id="i_gradyear" name="i_gradyear" value="">
-        </div>
-        
-        <div class="form-group">
-          <label for="i_city">Ville :</label>
-          <input type="text" id="i_city" name="i_city" value="">
-        </div>
-        
-        <div class="form-group">
-          <label for="i_country">Pays :</label>
-          <input type="text" id="i_country" name="i_country" value="">
-        </div>
-        
-        <div class="form-group">
-          <label for="i_start_date">Date de début :</label>
-          <input type="date" id="i_start_date" name="i_start_date">
-        </div>
-        
-        <div class="form-group">
-          <label for="i_end_date">Date de fin :</label>
-          <input type="date" id="i_end_date" name="i_end_date">
-        </div>
-        
-        <input type="submit" value="Envoyer">
-      
-      </form>
+        <div class="col-sm-4"></div>
+      </div>
     </div>
     
     <!-- Website Footer -->

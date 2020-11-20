@@ -62,8 +62,13 @@ form {
     padding: 10px 0;
 }
 
-input[type = text] {
+input {
     margin: 0 20px;
+}
+
+button {
+    margin: 0 20px 15px;
+    float: right;
 }
 
 img {
