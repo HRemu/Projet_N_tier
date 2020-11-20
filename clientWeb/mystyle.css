@@ -45,12 +45,21 @@ div.bg_green {
     color: white;
 }
 
+h1 {
+    margin: 10px 0;
+    font-size: 1.6em;
+}
+
 body {
     padding: auto 0px;
 }
 
 .container-fluid {
     padding: 5px 7px;
+}
+
+form {
+    padding: 10px 0;
 }
 
 input[type = text] {
