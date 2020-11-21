@@ -1,60 +1,108 @@
 /* JS functions file */
+/* Pour la vraie vérification : renvoyer True ou False */
 
-function indexQuery() {
-    
-    name = document.getElementById("name").value
-    gradyear = document.getElementById("gradyear").value
-    
-    resultat = "Vous avez lancé une requête avec les paramètres suivants :\n";
-    resultat += "[nom : '" + name + "' | promo : '" + gradyear + "']";
-    
-    alert(resultat);
+
+function checkNom(nom) {
+    return true;
 }
 
 
-function studentQuery() {
-    
-    fname = document.getElementById("s_fname").value
-    lname = document.getElementById("s_lname").value
-    gradyear = document.getElementById("s_gradyear").value
-    
-    resultat = "Vous avez créé un étudiant dans la base :\n";
-    resultat += fname + " " + lname + " -- promo(" + gradyear + ")";
-    
-    alert(resultat);
+function checkPromo(promo) {
+    return true;
 }
 
 
-function cityQuery() {
-    
-    city = document.getElementById("c_city").value
-    country = document.getElementById("c_country").value
-    lon = document.getElementById("c_lon").value
-    lat = document.getElementById("c_lat").value
-    
-    resultat = "Vous avez créé une ville dans la base :\n";
-    resultat += city + ", " + country + " -- coord(" + lon + " , " + lat + ")";
-    
-    alert(resultat);
+function checkCoord(coord) {
+    return true;
 }
 
 
-function internshipQuery() {
+function checkDate(date) {
+    return true;
+}
+
+
+function requete(domaine) {
     
-    fname = document.getElementById("i_fname").value
-    lname = document.getElementById("i_lname").value
-    gradyear = document.getElementById("i_gradyear").value
-    city = document.getElementById("i_city").value
-    country = document.getElementById("i_country").value
-    start = document.getElementById("i_start_date").value
-    end = document.getElementById("i_end_date").value
+    if (domaine == 'annuaire') {
+        
+        nom = document.getElementById("name").value
+        promo = document.getElementById("gradyear").value
+        
+        nomOK = checkNom(nom) ? "OK" : "Not OK";
+        promoOK = checkPromo(promo) ? "OK" : "Not OK";
+        
+        resultat  = "Check nom (" + nom + ") : " + nomOK + "\n";
+        resultat += "Check promotion ("  + promo + ") : " + promoOK;
+        
+        alert(resultat);
+    }
     
-    resultat = "Vous avez créé un stage dans la base :\n";
-    resultat += "DE " + fname + " " + lname + " -- promo(" + gradyear + ")\n"
-    resultat += "A " + city + ", " + country + "\n"
-    resultat += "ENTRE " + start + " ET " + end;
+    else if (domaine == 'etudiant') {
+        
+        prenom = document.getElementById("fname").value
+        nom = document.getElementById("lname").value
+        promo = document.getElementById("gradyear").value
+        
+        prenomOK = checkNom(prenom) ? "OK" : "Not OK";
+        nomOK = checkNom(nom) ? "OK" : "Not OK";
+        promoOK = checkPromo(promo) ? "OK" : "Not OK";
+        
+        resultat  = "Check prénom (" + prenom + ") : " + prenomOK + "\n";
+        resultat += "Check nom (" + nom + ") : " + nomOK + "\n";
+        resultat += "Check promotion ("  + promo + ") : " + promoOK;
+        
+        alert(resultat);
+    }
     
-    alert(resultat);
+    else if (domaine == 'ville') {
+        
+        ville = document.getElementById("city").value
+        pays = document.getElementById("country").value
+        lon = document.getElementById("lon").value
+        lat = document.getElementById("lat").value
+        
+        villeOK = checkNom(ville) ? "OK" : "Not OK";
+        paysOK = checkNom(pays) ? "OK" : "Not OK";
+        lonOK = checkCoord(lon) ? "OK" : "Not OK";
+        latOK = checkCoord(lat) ? "OK" : "Not OK";
+        
+        resultat  = "Check ville (" + ville + ") : " + villeOK + "\n";
+        resultat += "Check pays (" + pays + ") : " + paysOK + "\n";
+        resultat += "Check longitude (" + lon + ") : " + lonOK + "\n";
+        resultat += "Check latitude (" + lat + ") : " + latOK;
+        
+        alert(resultat);
+    }
+    
+    else if (domaine == 'stage') {
+        
+        prenom = document.getElementById("fname").value
+        nom = document.getElementById("lname").value
+        promo = document.getElementById("gradyear").value
+        ville = document.getElementById("city").value
+        pays = document.getElementById("country").value
+        debut = document.getElementById("start_date").value
+        fin = document.getElementById("end_date").value
+        
+        prenomOK = checkNom(prenom) ? "OK" : "Not OK";
+        nomOK = checkNom(nom) ? "OK" : "Not OK";
+        promoOK = checkPromo(promo) ? "OK" : "Not OK";
+        villeOK = checkNom(ville) ? "OK" : "Not OK";
+        paysOK = checkNom(pays) ? "OK" : "Not OK";
+        debutOK = checkDate(debut) ? "OK" : "Not OK";
+        finOK = checkDate(fin) ? "OK" : "Not OK";
+        
+        resultat  = "Check prénom (" + prenom + ") : " + prenomOK + "\n";
+        resultat += "Check nom (" + nom + ") : " + nomOK + "\n";
+        resultat += "Check promotion ("  + promo + ") : " + promoOK + "\n";
+        resultat += "Check ville (" + ville + ") : " + villeOK + "\n";
+        resultat += "Check pays (" + pays + ") : " + paysOK + "\n";
+        resultat += "Check date début (" + debut + ") : " + debutOK + "\n";
+        resultat += "Check date fin (" + fin + ") : " + finOK;
+        
+        alert(resultat);
+    }
 }
 
 
