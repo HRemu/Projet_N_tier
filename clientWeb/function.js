@@ -1,24 +1,24 @@
 /* JS functions file */
-/* Pour la vraie vérification : renvoyer True ou False */
+/* WARNING: ces fonctions ne testent QUE la syntaxe, pas la cohérence */
 
 
 function checkNom(nom) {
-    return true;
+    return /(^[A-Za-z]+([- ]?[A-Za-z]+){1,2}$)/.test(nom);
 }
 
 
 function checkPromo(promo) {
-    return true;
+    return /(^[0-9]{4}$)/.test(promo);
 }
 
 
 function checkCoord(coord) {
-    return true;
+    return /(^[-]?[0-9]+([.][0-9]+)?$)/.test(coord);
 }
 
 
 function checkDate(date) {
-    return true;
+    return /(^([0-9]{2}[/]){2}[0-9]{4}$)/.test(date);
 }
 
 
