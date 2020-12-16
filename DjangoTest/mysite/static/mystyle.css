@@ -1,0 +1,79 @@
+/* Additional CSS */
+
+.dark_theme {
+    background-color: black;
+    color: white;
+}
+
+.active, .active:hover {
+    color: yellow;
+    pointer-events: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    width: 100%;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    text-align: center;
+    padding: 0px 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+ul li a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+div.bg_gray {
+    background-color: #9caeaf;
+    color: white;
+}
+
+div.bg_green {
+    background-color: #00ce00;
+    color: white;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 1.6em;
+}
+
+body {
+    padding: auto 0px;
+}
+
+.container-fluid {
+    padding: 5px 7px;
+}
+
+form {
+    padding: 10px 0;
+}
+
+input {
+    margin: 0 20px;
+}
+
+button {
+    margin: 0 20px 15px;
+    float: right;
+}
+
+img {
+    margin: 15px 0px;
+}
+
+
+
