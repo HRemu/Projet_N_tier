@@ -10,6 +10,8 @@
     pointer-events: none;
 }
 
+/* Navbar CSS Declaration */
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -35,6 +37,8 @@ ul li a:hover {
     text-decoration: none;
 }
 
+/* End of Navbar CSS Declaration */
+
 div.bg_gray {
     background-color: #9caeaf;
     color: white;
@@ -42,6 +46,12 @@ div.bg_gray {
 
 div.bg_green {
     background-color: #00ce00;
+    color: white;
+}
+
+/* Marche pas nique ta mere */
+div.bg_purple {
+    background-color: #800080;
     color: white;
 }
 
@@ -58,22 +68,16 @@ body {
     padding: 5px 7px;
 }
 
-form {
-    padding: 10px 0;
-}
-
-input {
-    margin: 0 20px;
-}
-
-button {
-    margin: 0 20px 15px;
-    float: right;
-}
-
 img {
     margin: 15px 0px;
 }
 
+/* Form CSS Declaration */
+
+/* Marche pas nique ta mere */
+.errorlist {
+	color: red;
+	text-align: center;
+}
 
 
