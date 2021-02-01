@@ -1,9 +1,9 @@
 from django.core.validators import RegexValidator
 from django import forms
 
-letters = RegexValidator(r'^[a-zA-Z ]*$', 'Only name characters are allowed.')
-digits = RegexValidator(r'^[0-9]{4}$', 'Only valid coordinates are allowed.')
-year = RegexValidator(r'^[0-9]{4}$', 'Only a valid year is allowed.')
+letters = RegexValidator(r'^[a-zA-Z ]*$', 'Only name letters are allowed.')
+digits = RegexValidator(r'^\-?(\d+\.)?\d+$', 'Only valid floats are allowed.')
+year = RegexValidator(r'^\d{4}$', 'Only a valid year is allowed.')
 
 
 class AnnuaireForm(forms.Form):
