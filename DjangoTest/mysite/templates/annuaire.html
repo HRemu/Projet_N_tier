@@ -24,54 +24,23 @@
       </ul>
     </header>
     
-    <!-- Container for queries parameters (form) -->
+    <!-- Declaration for student add / modify query -->
     <div class="container-fluid bg_green">
-      <div class="row">
-        
-        <div class="col-lg-2"></div>
-        
-        <div class="col-lg-8">
-          
-          <!-- Form -->
-          <form class = "form-inline" action="#" onsubmit="return requete('annuaire')">
-            <div class = "form-group">
-              <label for="lname">Nom :</label>
-              <input type="text" id="name" class="form-control" placeholder="Ex: John ou Doe">
-            </div>
-            <div class = "form-group">
-              <label for="gradyear">Promo :</label>
-                <input type="text" id="gradyear" class="form-control" placeholder="Ex: 2007">
-            </div>
-            <div class = "form-group">
-              <input type="submit" value="Chercher" class="form-control">
-            </div>
-          </form>
-        
-        </div>
-        
-        <div class="col-lg-2"></div>
-      
-      </div>
+      <h1 class="text-center">Annuaire</h1>
+    </div>
+	
+	<!-- Container for queries parameters (form) -->
+    <div class="container-fluid bg_gray">
+      <form class="text-center" action="" method="get">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit">
+	  </form>
     </div>
     
     <!-- Results of above query -->
-    <div class="container-fluid bg_gray">
-      <h3>This is where we will show the results of the query</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin
-      nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue
-      mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellientesque
-      habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maeca
-      pharetra convallis posuere</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin
-      nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue
-      mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellientesque
-      habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maeca
-      pharetra convallis posuere</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin
-      nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue
-      mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellientesque
-      habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maeca
-      pharetra convallis posuere</p>
+    <div class="container-fluid bg_purple">
+      <p class="text-center">Results of the query above go here</p>
     </div>
     
     <!-- Website Footer -->

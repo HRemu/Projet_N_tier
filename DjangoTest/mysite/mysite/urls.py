@@ -25,5 +25,4 @@ urlpatterns = [
     path('etudiant.html', views.etudiant),
     path('ville.html', views.ville),
     path('stage.html', views.stage),
-    path('admin/', admin.site.urls),
 ]
