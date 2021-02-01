@@ -74,11 +74,31 @@ img {
 /* Form CSS Declaration */
 
 form {
-	padding: 1em 0;
+	margin: 1em 35%;
+	overflow: hidden;
 }
 
 form ul.errorlist {
 	color: red;
+}
+
+form p {
+	text-align: center;
+}
+
+label {
+	text-align: left;
+	width: 120px;
+	display: inline-block;
+}
+
+input[type = "text"] {
+	width: 200px;
+}
+
+input {
+	float: right;
+	clear: both;
 }
 
 /* End of Form CSS Declaration */
