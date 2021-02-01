@@ -49,7 +49,6 @@ div.bg_green {
     color: white;
 }
 
-/* Marche pas nique ta mere */
 div.bg_purple {
     background-color: #800080;
     color: white;
@@ -74,10 +73,16 @@ img {
 
 /* Form CSS Declaration */
 
-/* Marche pas nique ta mere */
-.errorlist {
-	color: red;
-	text-align: center;
+form {
+	padding: 1em 0;
 }
+
+form ul.errorlist {
+	color: red;
+}
+
+/* End of Form CSS Declaration */
+
+
 
 
