@@ -31,8 +31,7 @@
     
     <!-- Form in Container -->
     <div class="container-fluid bg_gray">
-      <form class="text-center" action="" method="post">
-		{% csrf_token %}
+      <form action="" method="post">
 		{{ form.as_p }}
 		<input type="submit" value="Submit">
 	  </form>

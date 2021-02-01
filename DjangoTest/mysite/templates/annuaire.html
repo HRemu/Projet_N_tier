@@ -31,8 +31,7 @@
 	
 	<!-- Container for queries parameters (form) -->
     <div class="container-fluid bg_gray">
-      <form class="text-center" action="" method="get">
-		{% csrf_token %}
+      <form action="" method="get">
 		{{ form.as_p }}
 		<input type="submit" value="Submit">
 	  </form>
