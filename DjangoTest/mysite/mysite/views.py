@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 from .forms import AnnuaireForm, EtudiantForm, VilleForm, StageForm
+from .models import Gradyear, Student, Country, City, Internship
 
 def annuaire(request):
     if request.method == 'GET':
@@ -32,10 +33,16 @@ def etudiant(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
-
-            # return HttpResponse
-            return render(request, 'etudiant.html', {'form': form})
-
+            prenom = form.cleaned_data['nom']
+            nom = form.cleaned_data['prenom']
+            try :
+                annee = Gradyear.objects.get(label = form.cleaned_data['annee'] )
+            except Gradyear.DoesNotExist :
+                annee = Gradyear(label = form.cleaned_data['annee'])
+                annee.save()
+            newStudent = Student(fname = prenom, lname=nom, gradyear_id = annee)
+            newStudent.save()           
+            return HttpResponse(f'<h1>new Student : {nom} </h1>')  
     else:
         form = EtudiantForm()
 
