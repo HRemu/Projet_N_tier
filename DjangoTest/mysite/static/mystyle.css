@@ -92,7 +92,7 @@ label {
 	display: inline-block;
 }
 
-input[type = "text"], input[type = "email"] {
+input[type = "text"] input[type = "email"] {
 	width: 200px;
 }
 
