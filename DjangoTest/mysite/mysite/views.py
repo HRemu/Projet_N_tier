@@ -86,9 +86,10 @@ def etudiant(request):
             except Student.DoesNotExist:
                 newStudent = Student(fname = prenom, lname = nom, email = email, gradyear_id = newYear)
                 newStudent.save()
-                return HttpResponse(f'<p>Query OK: {prenom.lower()} {nom.upper()} added to database.</p>')
+                blankForm = EtudiantForm()
+                return render(request, 'etudiant.html', {'form': blankForm ,'response': 'eleve '+ nom + ' inscrit'})
             
-            return HttpResponse(f'<p>Query failed: mail unicity constraint.</p>')
+            return render(request, 'etudiant.html', {'form': blankForm ,'response': 'adresse mail prise'})
     
     else:
         form = EtudiantForm()
@@ -123,7 +124,8 @@ def ville(request):
             except City.DoesNotExist:
                 newCity = City(city_name = ville, longitude = longitude, latitude = latitude, country_id = newCountry)
                 newCity.save()
-                return HttpResponse(f'<p>Query OK: {ville}, {pays} added to database.</p>')
+                blankForm = VilleForm()
+                return render(request, 'ville.html', {'form': blankForm, 'response': 'ville inscrite'})
             
             return HttpResponse(f'<p>Query failed: unicity constraint.</p>')
 
