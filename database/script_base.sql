@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS STUDENT(
    student_id INT AUTO_INCREMENT NOT NULL,
    fname VARCHAR(50) NOT NULL,
    lname VARCHAR(50) NOT NULL,
+   email VARCHAR(100) NOT NULL,
    gradyear_id INT NOT NULL,
    PRIMARY KEY( student_id ),
    FOREIGN KEY ( gradyear_id ) REFERENCES GRADYEAR( gradyear_id )
