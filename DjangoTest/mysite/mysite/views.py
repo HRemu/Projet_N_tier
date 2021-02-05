@@ -127,7 +127,7 @@ def ville(request):
                 blankForm = VilleForm()
                 return render(request, 'ville.html', {'form': blankForm, 'response': 'ville inscrite'})
             
-            return HttpResponse(f'<p>Query failed: unicity constraint.</p>')
+            return render(request, 'ville.html', {'form': blankForm, 'response': 'La ville existe déja'})
 
     else:
         form = VilleForm()
