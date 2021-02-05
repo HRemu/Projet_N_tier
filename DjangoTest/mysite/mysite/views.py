@@ -1,15 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db.models import Q
+
 from .forms import AnnuaireForm, EtudiantForm, VilleForm, StageForm
 from .models import Gradyear, Student, Country, City, Internship
 
-# WHERE ... OR ... condition requests
-from django.db.models import Q
-
 
 def index(request):
-    # TODO: faire une requete sur les stages pour
-    # plotter les villes de stage sur la worldmap
+    # TODO: faire une requete sur les stages pour plotter les villes de stage sur la worldmap
     return render(request, 'index.html')
 
 
@@ -38,17 +36,17 @@ def annuaire(request):
                     students = Student.objects.filter(Q(fname__contains = nom) | Q(lname__contains = nom))
             
             except Student.DoesNotExist:
-                return HttpResponse(f'<p>Query OK: 0 students found in database</p>')
+                students = []
             
             # create HttpResponse
-            content = '<p>Query OK: ' + str(len(students)) + ' students found in database.</p><ul>'
+            content = '<p>Query OK: ' + str(len(students)) + ' student(s) found in database.</p><ul>'
             
             for i in range(len(students)):
                 # get student data
-                student_id, fname, lname = students[i].student_id, students[i].fname, students[i].lname
+                student_id, fname, lname, email = students[i].student_id, students[i].fname, students[i].lname, students[i].email
                 
                 # add <li> element
-                content += '<li>' + lname.upper() + ' ' + fname.lower() + ' (' + str(student_id) + ')</li>'
+                content += '<li>[' + str(student_id) + '] ' + lname.upper() + ' ' + fname.lower() + ' -- ' + email + '</li>'
             
             content += '</ul>'
             
