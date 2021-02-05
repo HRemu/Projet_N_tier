@@ -8,7 +8,7 @@ year = RegexValidator(r'^\d{4}$', 'Saisissez une année valide.')
 
 class AnnuaireForm(forms.Form):
     # global search form
-    nom = forms.CharField(label = 'Nom', required = False, max_length = 100, validators = [letters])
+    nom = forms.CharField(label = 'Nom / Prénom', max_length = 100, validators = [letters])
     annee = forms.CharField(label = 'Promo', required = False, max_length = 4, validators = [year])
 
 
@@ -16,6 +16,7 @@ class EtudiantForm(forms.Form):
     # student insertion form
     prenom = forms.CharField(label = 'Prénom', max_length = 100, validators = [letters])
     nom = forms.CharField(label = 'Nom', max_length = 100, validators = [letters])
+    email = forms.EmailField(label = 'Email', max_length = 100, required = True)
     annee = forms.CharField(label = 'Promo', max_length = 4, validators = [year])
 
 
@@ -31,7 +32,7 @@ class StageForm(forms.Form):
     # internship insertion form
     prenom = forms.CharField(label = 'Prénom', max_length = 100, validators = [letters])
     nom = forms.CharField(label = 'Nom', max_length = 100, validators = [letters])
-    annee = forms.CharField(label = 'Promo', max_length = 4, validators = [year])
+    email = forms.EmailField(label = 'Email', max_length = 100, required = True)
     ville = forms.CharField(label = 'Ville', max_length = 100, validators = [letters])
     pays = forms.CharField(label = 'Pays', max_length = 100, validators = [letters])
     debut = forms.DateField(label = 'Date de début')
