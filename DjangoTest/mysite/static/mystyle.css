@@ -1,16 +1,18 @@
 /* Additional CSS */
 
-.dark_theme {
-    background-color: black;
-    color: white;
-}
+/* Colors Definitions
+dark: #222222;
+light: #d5d5e7;
+blue (navbar): #56579f;
+orange: #f1971e;
+*/
 
-.active, .active:hover {
-    color: yellow;
-    pointer-events: none;
-}
+/* NAVBAR */
 
-/* Navbar CSS Declaration */
+
+.navbar {
+	background-color: #56579f;
+}
 
 ul {
     list-style-type: none;
@@ -29,29 +31,28 @@ ul li a {
     text-align: center;
     padding: 0px 10px;
     text-decoration: none;
-    color: inherit;
+    color: #d5d5e7;
 }
 
 ul li a:hover {
-    color: red;
+    color: #222222;
     text-decoration: none;
 }
 
-/* End of Navbar CSS Declaration */
-
-div.bg_gray {
-    background-color: #9caeaf;
-    color: white;
+.active, .active:hover {
+    color: #f1971e;
+    pointer-events: none;
 }
 
-div.bg_green {
-    background-color: #00ce00;
-    color: white;
-}
 
-div.bg_purple {
-    background-color: #800080;
-    color: white;
+
+/* MAIN BLOCKS */
+
+
+.container-fluid {
+    background-color: #222222;
+    color: #d5d5e7;
+	padding: 5px 7px;
 }
 
 h1 {
@@ -63,23 +64,29 @@ body {
     padding: auto 0px;
 }
 
-.container-fluid {
-    padding: 5px 7px;
-}
-
 img {
     margin: 15px 0px;
 }
 
-/* Form CSS Declaration */
+.footer-copyright {
+	background-color: #56579f;
+	color: #d5d5e7;
+}
+
+
+
+/* FORMS */
+
 
 form {
 	margin: 1em 35%;
 	overflow: hidden;
 }
 
-form ul.errorlist {
-	color: red;
+form ul li {
+	float: right;
+	clear: both;
+	color: #ff0000;
 }
 
 form p {
@@ -101,20 +108,19 @@ input {
 	clear: both;
 }
 
-/* End of Form CSS Declaration */
 
 
-/* Query Answers CSS */
+/* QUERY ANSWERS */
 
-p.bad-query {
-	text-align: center;
-	color: red;
-}
 
 p.good-query {
 	text-align: center;
-	color: green;
+	color: #66cd00;
 }
 
-/* End of Query Answers CSS */
+p.bad-query {
+	text-align: center;
+	color: #ff0000;
+}
+
 
