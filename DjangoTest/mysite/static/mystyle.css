@@ -104,5 +104,17 @@ input {
 /* End of Form CSS Declaration */
 
 
+/* Query Answers CSS */
 
+p.bad-query {
+	text-align: center;
+	color: red;
+}
+
+p.good-query {
+	text-align: center;
+	color: green;
+}
+
+/* End of Query Answers CSS */
 

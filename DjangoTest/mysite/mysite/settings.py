@@ -22,7 +22,7 @@ STATIC_URL = '/static/'
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
-    'C:/Users/arnau/Documents/DjangoTest/mysite/static',
+    'C:/Users/arnau/Documents/NTiers/Projet_N_Tier/DjangoTest/mysite/static',
 )
 
 # Quick-start development settings - unsuitable for production

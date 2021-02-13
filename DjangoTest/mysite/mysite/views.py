@@ -28,7 +28,7 @@ def annuaire(request):
                         yearId = Gradyear.objects.get(label = annee)
                     
                     except:
-                        return HttpResponse(f'<p>Query failed: no matching gradyear ID</p>')
+                        return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching gradyear in database.'})
                     
                     students = Student.objects.filter(Q(fname__contains = nom, gradyear_id = yearId) | Q(lname__contains = nom, gradyear_id = yearId))
                 
@@ -39,7 +39,7 @@ def annuaire(request):
                 students = []
             
             # create HttpResponse
-            content = '<p>Query OK: ' + str(len(students)) + ' student(s) found in database.</p><ul>'
+            content = '<p>Query OK: ' + str(len(students)) + ' student(s) found in the database.</p><ul>'
             
             for i in range(len(students)):
                 # get student data
@@ -51,7 +51,7 @@ def annuaire(request):
             content += '</ul>'
             
             # return HttpResponse
-            return HttpResponse(content)
+            return render(request, 'annuaire.html', {'form': AnnuaireForm(), 'css': "good-query", 'response': content})
 
     else:
         form = AnnuaireForm()
@@ -86,10 +86,9 @@ def etudiant(request):
             except Student.DoesNotExist:
                 newStudent = Student(fname = prenom, lname = nom, email = email, gradyear_id = newYear)
                 newStudent.save()
-                blankForm = EtudiantForm()
-                return render(request, 'etudiant.html', {'form': blankForm ,'response': 'eleve '+ nom + ' inscrit'})
+                return render(request, 'etudiant.html', {'form': EtudiantForm(), 'css': "good-query", 'response': 'Query OK: student added to database.'})
             
-            return render(request, 'etudiant.html', {'form': blankForm ,'response': 'adresse mail prise'})
+            return render(request, 'etudiant.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: matching student found in database.'})
     
     else:
         form = EtudiantForm()
@@ -124,10 +123,9 @@ def ville(request):
             except City.DoesNotExist:
                 newCity = City(city_name = ville, longitude = longitude, latitude = latitude, country_id = newCountry)
                 newCity.save()
-                blankForm = VilleForm()
-                return render(request, 'ville.html', {'form': blankForm, 'response': 'ville inscrite'})
+                return render(request, 'ville.html', {'form': VilleForm(), 'css': "good-query", 'response': 'Query OK: city added to database.'})
             
-            return render(request, 'ville.html', {'form': blankForm, 'response': 'La ville existe déja'})
+            return render(request, 'ville.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: matching city found in database.'})
 
     else:
         form = VilleForm()
@@ -160,21 +158,21 @@ def stage(request):
                     student = Student.objects.get(email = email)
                 
                 except Student.DoesNotExist:
-                    return HttpResponse(f'<p>Query failed: no matching student in database.</p>')
+                    return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching student in database.'})
                 
                 # get country id
                 try:
                     country = Country.objects.get(country_name = pays)
                 
                 except Country.DoesNotExist:
-                    return HttpResponse(f'<p>Query failed: no matching country in database.</p>')
+                    return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching country in database.'})
                 
                 # get city id
                 try:
                     city = City.objects.get(city_name = ville, country_id = country)
                 
                 except City.DoesNotExist:
-                    return HttpResponse(f'<p>Query failed: no matching city in database.</p>')
+                    return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching city in database.'})
                 
                 # create internship
                 try:
@@ -183,12 +181,12 @@ def stage(request):
                 except Internship.DoesNotExist:
                     newInternship = Internship(student_id = student, city_id = city, date_start = debut, date_end = fin)
                     newInternship.save()
-                    return HttpResponse(f'<p>Query OK: internship added to database.</p>')
+                    return render(request, 'stage.html', {'form': form, 'css': "good-query", 'response': 'Query OK: internship added to database.'})
                 
-                return HttpResponse(f'<p>Query failed: unicity constraint.</p>')
+                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: unicity constraint.'})
             
             else:
-                return HttpResponse(f'<p>Query failed: did you invert your start and end dates?.</p>')
+                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: did you invert your start and end dates?'})
     
     else:
         form = StageForm()
