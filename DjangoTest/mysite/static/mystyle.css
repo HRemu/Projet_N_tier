@@ -1,11 +1,5 @@
 /* Additional CSS */
 
-/* Colors Definitions
-dark: #222222;
-light: #d5d5e7;
-blue (navbar): #56579f;
-orange: #f1971e;
-*/
 
 /* NAVBAR */
 
@@ -121,6 +115,12 @@ p.good-query {
 p.bad-query {
 	text-align: center;
 	color: #ff0000;
+}
+
+ol {
+	list-style-type: circle;
+	text-align: center;
+	margin: 2em 0;
 }
 
 

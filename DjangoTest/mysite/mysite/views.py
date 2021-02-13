@@ -41,19 +41,8 @@ def annuaire(request):
             # create HttpResponse
             header = 'Query OK: ' + str(len(students)) + ' student(s) found in the database.'
             
-            elements = '<ul>'
-            
-            for i in range(len(students)):
-                # get student data
-                student_id, fname, lname, email = students[i].student_id, students[i].fname, students[i].lname, students[i].email
-                
-                # add <li> element
-                elements += '<li>[' + str(student_id) + '] ' + lname.upper() + ' ' + fname.lower() + ' -- ' + email + '</li>'
-            
-            elements += '</ul>'
-            
             # return HttpResponse
-            return render(request, 'annuaire.html', {'form': AnnuaireForm(), 'css': "good-query", 'response': header, 'elements': elements})
+            return render(request, 'annuaire.html', {'form': AnnuaireForm(), 'css': "good-query", 'response': header, 'elements': students})
 
     else:
         form = AnnuaireForm()

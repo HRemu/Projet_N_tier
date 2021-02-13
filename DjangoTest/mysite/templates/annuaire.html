@@ -40,7 +40,11 @@
     <!-- Results of above query -->
     <div class="container-fluid">
       <p class={{css}}>{{ response }}</p>
-	  {{ elements }}
+	  <ol>
+	    {% for item in elements %}
+		  <li>{{ item.fname }} {{ item.lname }} - {{ item.email }}</li>
+		{% endfor %}
+	  </ol>
     </div>
     
     <!-- Website Footer -->
