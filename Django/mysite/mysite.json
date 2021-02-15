@@ -1,0 +1,252 @@
+[
+	{
+		"model" : "mysite.gradyear",
+		"pk" : 1,
+		"fields" : {
+			"label" : "2010"
+		}
+	},
+	{
+		"model" : "mysite.gradyear",
+		"pk" : 2,
+		"fields" : {
+			"label" : "2011"
+		}
+	},
+	{
+		"model" : "mysite.gradyear",
+		"pk" : 3,
+		"fields" : {
+			"label" : "2012"
+		}
+	},
+	{
+		"model" : "mysite.gradyear",
+		"pk" : 4,
+		"fields" : {
+			"label" : "2013"
+		}
+	},
+	{
+		"model" : "mysite.gradyear",
+		"pk" : 5,
+		"fields" : {
+			"label" : "2014"
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 1,
+		"fields" : {
+			"fname" : "DEWEY",
+			"lname" : "DUCK",
+			"email" : "dewey.duck@mail.com",
+			"gradyear_id" : 1
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 2,
+		"fields" : {
+			"fname" : "HUEY",
+			"lname" : "DUCK",
+			"email" : "huey.duck@mail.com",
+			"gradyear_id" : 1
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 3,
+		"fields" : {
+			"fname" : "LOUIE",
+			"lname" : "DUCK",
+			"email" : "louie.duck@mail.com",
+			"gradyear_id" : 2
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 4,
+		"fields" : {
+			"fname" : "CHARLIE",
+			"lname" : "BUCKET",
+			"email" : "charlie.bucket@mail.com",
+			"gradyear_id" : 3
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 5,
+		"fields" : {
+			"fname" : "CHARLIE",
+			"lname" : "HAMMER",
+			"email" : "charlie.hammer@mail.com",
+			"gradyear_id" : 3
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 6,
+		"fields" : {
+			"fname" : "GIORNO",
+			"lname" : "GIOVANNA",
+			"email" : "giorno.giovanna@mail.com",
+			"gradyear_id" : 4
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 7,
+		"fields" : {
+			"fname" : "DIO",
+			"lname" : "BRANDO",
+			"email" : "dio.brando@mail.com",
+			"gradyear_id" : 5
+		}
+	},
+	{
+		"model" : "mysite.student",
+		"pk" : 8,
+		"fields" : {
+			"fname" : "WOLF",
+			"lname" : "BIG BAD",
+			"email" : "wolf.bigbad@mail.com",
+			"gradyear_id" : 5
+		}
+	},
+	{
+		"model" : "mysite.country",
+		"pk" : 1,
+		"fields" : {
+			"country_name" : "USA"
+		}
+	},
+	{
+		"model" : "mysite.country",
+		"pk" : 2,
+		"fields" : {
+			"country_name" : "CANADA"
+		}
+	},
+	{
+		"model" : "mysite.country",
+		"pk" : 3,
+		"fields" : {
+			"country_name" : "GERMANY"
+		}
+	},
+	{
+		"model" : "mysite.country",
+		"pk" : 4,
+		"fields" : {
+			"country_name" : "ITALY"
+		}
+	},
+	{
+		"model" : "mysite.country",
+		"pk" : 5,
+		"fields" : {
+			"country_name" : "SOUTH KOREA"
+		}
+	},
+	{
+		"model" : "mysite.city",
+		"pk" : 1,
+		"fields" : {
+			"city_name" : "WASHINGTON",
+			"longitude" : -77.03637,
+			"latitude" : 38.89511,
+			"country_id" : 1
+		}
+	},
+	{
+		"model" : "mysite.city",
+		"pk" : 2,
+		"fields" : {
+			"city_name" : "LAS VEGAS",
+			"longitude" : -115.13722,
+			"latitude" : 36.17497,
+			"country_id" : 1
+		}
+	},
+	{
+		"model" : "mysite.city",
+		"pk" : 3,
+		"fields" : {
+			"city_name" : "VANCOUVER",
+			"longitude" : -123.11934,
+			"latitude" : 49.24966,
+			"country_id" : 2
+		}
+	},
+	{
+		"model" : "mysite.city",
+		"pk" : 4,
+		"fields" : {
+			"city_name" : "FRANKFURT",
+			"longitude" : 8.68417,
+			"latitude" : 50.11552,
+			"country_id" : 3
+		}
+	},
+	{
+		"model" : "mysite.city",
+		"pk" : 5,
+		"fields" : {
+			"city_name" : "PALERMO",
+			"longitude" : 13.33561,
+			"latitude" : 38.13205,
+			"country_id" : 4
+		}
+	},
+	{
+		"model" : "mysite.city",
+		"pk" : 6,
+		"fields" : {
+			"city_name" : "SEOUL",
+			"longitude" : 126.9784,
+			"latitude" : 37.566,
+			"country_id" : 5
+		}
+	},
+	{
+		"model" : "mysite.internship",
+		"pk" : 1,
+		"fields" : {
+			"student_id" : 4,
+			"city_id" : 6,
+			"date_start" : "2018-06-04",
+			"date_end" : "2018-08-16"
+		}
+	},
+	{
+		"model" : "mysite.internship",
+		"pk" : 2,
+		"fields" : {
+			"student_id" : 7,
+			"city_id" : 4,
+			"date_start" : "2018-06-01",
+			"date_end" : "2018-07-01"
+		}
+	},
+	{
+		"model" : "mysite.internship",
+		"pk" : 3,
+		"fields" : {
+			"student_id" : 7,
+			"city_id" : 4,
+			"date_start" : "2016-06-03",
+			"date_end" : "2018-08-02"
+		}
+	},
+	{
+		"model" : "mysite.internship",
+		"pk" : 4,
+		"fields" : {
+			"student_id" : 7,
+			"city_id" : 3,
+			"date_start" : "2019-09-04",
+			"date_end" : "2020-02-21"
+		}
+	}
+]
