@@ -14,5 +14,7 @@
 
 ## Launching the dev server
 
-- go to __{..}/Django/mysite__ and run the following command: _python manage.py runserver_
+- go to __{..}/Django/mysite__ and run the following command:
+	- _python manage.py runserver_
+	- use your Web browser to go through the app
 
