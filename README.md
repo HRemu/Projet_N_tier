@@ -1,8 +1,8 @@
-Projet N-tiers
+# Projet N-tiers
 
 /******/
 
-**** Django MySQL Initialization ****
+## Django MySQL Initialization
 
 - create a local MySQL database named stageetudiant (_'CREATE DATABASE stageetudiant;'_)
 - go to __{..}/Django/mysite__ and run the following commands in order:
@@ -11,7 +11,7 @@ Projet N-tiers
 	- _python manage.py migrate mysite_
 
 
-**** Launching the dev server ****
+## Launching the dev server
 
 - go to __{..}/Django/mysite__ and run the following command: _python manage.py runserver_
 
