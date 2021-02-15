@@ -1,6 +1,6 @@
 # Projet N-tiers
 
-/******/
+---
 
 ## Django MySQL Initialization
 
@@ -10,6 +10,7 @@
 	- _python manage.py loaddata mysite.json_
 	- _python manage.py migrate mysite_
 
+---
 
 ## Launching the dev server
 
