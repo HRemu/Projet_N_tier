@@ -2,17 +2,16 @@ Projet N-tiers
 
 /******/
 
-Une BDD ?
-- MySQL
+** Django MySQL Initialization **
 
-Un back-end ?
-- Python Django
+- create a local MySQL database named stageetudiant ('CREATE DATABASE stageetudiant;')
+- go to {..}/Django/mysite and run the following commands in order:
+	- python manage.py makemigrations mysite
+	- python manage.py loaddata mysite.json
+	- python manage.py migrate mysite
 
-Un serveur Web ?
-- Python Django (serveur intégré)
 
-Un front-end ?
-- HTML/CSS/JS (ft. Bootstrap)
+** Launching the dev server **
 
-Un hotel ?
-- Trivago
+- go to {..}/Django/mysite and run the following command: python manage.py runserver
+
