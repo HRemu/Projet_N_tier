@@ -4,10 +4,29 @@ from django.db.models import Q
 
 from .forms import AnnuaireForm, EtudiantForm, VilleForm, StageForm
 from .models import Gradyear, Student, Country, City, Internship
-
+import folium
 
 def index(request):
-    # TODO: faire une requete sur les stages pour plotter les villes de stage sur la worldmap
+    
+    coords = (30,0)
+    map = folium.Map(location=coords, tiles='OpenStreetMap', zoom_start=2, max_zoom=2, min_zoom=2)
+    stages = Internship.objects.all()
+    
+    
+    for i in range(len(stages)):
+        print(stages[i].city_id.longitude)
+        print(stages[i].city_id.latitude)
+        folium.CircleMarker(
+            location = (stages[i].city_id.longitude, stages[i].city_id.latitude),
+            radius = 5,
+            color = 'crimson',
+            fill = True,
+            fill_color = 'crimson'
+        ).add_to(map)
+    
+    
+    map.save(outfile='static/map.html')
+    
     return render(request, 'index.html')
 
 
