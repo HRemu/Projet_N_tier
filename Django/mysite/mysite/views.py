@@ -1,31 +1,31 @@
+import folium
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Q
 
 from .forms import AnnuaireForm, EtudiantForm, VilleForm, StageForm
 from .models import Gradyear, Student, Country, City, Internship
-import folium
+
 
 def index(request):
     
-    coords = (30,0)
-    map = folium.Map(location=coords, tiles='OpenStreetMap', zoom_start=2, max_zoom=2, min_zoom=2)
+    worldMap = folium.Map(location = (30,0) , tiles = 'OpenStreetMap', zoom_start = 2, max_zoom = 2, min_zoom = 2)
     stages = Internship.objects.all()
     
-    
     for i in range(len(stages)):
-        print(stages[i].city_id.longitude)
-        print(stages[i].city_id.latitude)
+        longitude = float(stages[i].city_id.longitude)
+        latitude = float(stages[i].city_id.latitude)
+        
         folium.CircleMarker(
-            location = (stages[i].city_id.longitude, stages[i].city_id.latitude),
+            location = ( latitude, longitude ),
             radius = 5,
             color = 'crimson',
             fill = True,
             fill_color = 'crimson'
-        ).add_to(map)
+        ).add_to(worldMap)
     
-    
-    map.save(outfile='static/map.html')
+    worldMap.save(outfile = 'static/map.html')
     
     return render(request, 'index.html')
 
