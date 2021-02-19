@@ -18,7 +18,8 @@ It was built using Django and MySQL, and only runs on the development server for
 CREATE DATABASE stageetudiant;
 ~~~~
 
-~~~~cmd
+* cmd (in {...}/Django/mysite/)
+~~~~
 python manage.py makemigrations mysite
 python manage.py migrate mysite
 python manage.py loaddata mysite.json
@@ -28,8 +29,9 @@ python manage.py migrate
 
 ### Running the application once set up
 
-```cmd
-C:/Users/{...}/Django/mysite> python manage.py runserver
-```
+* cmd (in {...}/Django/mysite/)
+~~~~
+python manage.py runserver
+~~~~
 _(then follow the instructions on the cmd)_
 
