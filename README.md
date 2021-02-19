@@ -8,8 +8,9 @@
 - go to __{..}/Django/mysite__ and run the following commands in order:
 
 	- _python manage.py makemigrations mysite_
-	- _python manage.py loaddata mysite.json_
 	- _python manage.py migrate mysite_
+	- _python manage.py loaddata mysite.json_
+	- _python manage.py migrate_
 
 ---
 
