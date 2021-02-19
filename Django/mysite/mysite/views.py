@@ -70,8 +70,13 @@ def annuaire(request):
 
 
 def details(request, idStudent):
-    # informations personnelles
-    return render(request, 'details.html')
+    # personal data
+    etudiant = Student.objects.get(student_id = idStudent)
+    
+    # internships
+    stages = Internship.objects.filter(student_id = idStudent)
+    
+    return render(request, 'details.html', {'student': etudiant, 'internships': stages})
 
 
 def etudiant(request):
