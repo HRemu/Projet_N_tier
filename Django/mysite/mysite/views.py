@@ -186,10 +186,6 @@ def stage(request):
         form = StageForm(request.POST)
 
         if form.is_valid():
-            # useless - just for good look
-            prenom = form.cleaned_data['prenom'].upper()
-            nom = form.cleaned_data['nom'].upper()
-            
             # process the data in form.cleaned_data as required
             email = form.cleaned_data['email']
             ville = form.cleaned_data['ville'].upper()

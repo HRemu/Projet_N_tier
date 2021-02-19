@@ -93,11 +93,11 @@ label {
 	display: inline-block;
 }
 
-input[type = "text"] input[type = "email"] {
+input[type = "text"], input[type = "email"], select {
 	width: 200px;
 }
 
-input {
+input, select {
 	float: right;
 	clear: both;
 }

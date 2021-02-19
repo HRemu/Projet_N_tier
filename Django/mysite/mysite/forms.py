@@ -30,8 +30,14 @@ class VilleForm(forms.Form):
 
 class StageForm(forms.Form):
     # internship insertion form
-    prenom = forms.CharField(label = 'Prénom', max_length = 100, validators = [letters])
-    nom = forms.CharField(label = 'Nom', max_length = 100, validators = [letters])
+    FRUIT_CHOICES = [
+    ('orange', 'Oranges'),
+    ('cantaloupe', 'Cantaloupes'),
+    ('mango', 'Mangoes'),
+    ('honeydew', 'Honeydews'),
+    ]
+    
+    etudiant = forms.CharField(label = 'Etudiant', widget = forms.Select(choices = FRUIT_CHOICES))
     email = forms.EmailField(label = 'Email', max_length = 100, required = True)
     ville = forms.CharField(label = 'Ville', max_length = 100, validators = [letters])
     pays = forms.CharField(label = 'Pays', max_length = 100, validators = [letters])
