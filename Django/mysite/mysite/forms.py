@@ -29,14 +29,16 @@ class VilleForm(forms.Form):
 
 
 class StageForm(forms.Form):
-    # internship insertion form
-    prenom = forms.CharField(label = 'Prénom', max_length = 100, validators = [letters])
-    nom = forms.CharField(label = 'Nom', max_length = 100, validators = [letters])
-    email = forms.EmailField(label = 'Email', max_length = 100, required = True)
-    ville = forms.CharField(label = 'Ville', max_length = 100, validators = [letters])
-    pays = forms.CharField(label = 'Pays', max_length = 100, validators = [letters])
-    debut = forms.DateField(label = 'Date de début')
-    fin = forms.DateField(label = 'Date de fin')
+    # redefine constructor
+    def __init__(self, student_list, city_list, *args, **kwargs):
+        # call parent
+        super().__init__(*args, **kwargs)
+        
+        # internship insertion form
+        self.fields['etudiant'] = forms.CharField(label = 'Etudiant', widget = forms.Select(choices = student_list))
+        self.fields['ville'] = forms.CharField(label = 'Ville', widget = forms.Select(choices = city_list))
+        self.fields['debut'] = forms.DateField(label = 'Date de début')
+        self.fields['fin'] = forms.DateField(label = 'Date de fin')
 
 
 ### END OF FILE ###

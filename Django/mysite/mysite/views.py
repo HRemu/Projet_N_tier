@@ -66,7 +66,7 @@ def annuaire(request):
                     yearId = Gradyear.objects.get(label = annee)
                 
                 except:
-                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching gradyear in database.'})
+                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'No matching gradyear in database.'})
                 
                 students = Student.objects.filter(gradyear_id = yearId)
             
@@ -80,12 +80,12 @@ def annuaire(request):
                     yearId = Gradyear.objects.get(label = annee)
                 
                 except:
-                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching gradyear in database.'})
+                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'No matching gradyear in database.'})
                 
                 students = Student.objects.filter( ( Q(fname__contains = nom) | Q(lname__contains = nom) ) & Q(gradyear_id = yearId) )
             
             # create HttpResponse
-            header = 'Query OK: ' + str(len(students)) + ' student(s) found in the database.'
+            header = str(len(students)) + ' student(s) found in the database.'
             
             # return HttpResponse
             return render(request, 'annuaire.html', {'form': AnnuaireForm(), 'css': "good-query", 'response': header, 'elements': students})
@@ -133,9 +133,13 @@ def etudiant(request):
             except Student.DoesNotExist:
                 newStudent = Student(fname = prenom, lname = nom, email = email, gradyear_id = newYear)
                 newStudent.save()
-                return render(request, 'etudiant.html', {'form': EtudiantForm(), 'css': "good-query", 'response': 'Query OK: student added to database.'})
+                
+                # blank form
+                form = EtudiantForm()
+                
+                return render(request, 'etudiant.html', {'form': form, 'css': "good-query", 'response': 'Student added to database.'})
             
-            return render(request, 'etudiant.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: matching student found in database.'})
+            return render(request, 'etudiant.html', {'form': form, 'css': "bad-query", 'response': 'Matching student found in database.'})
     
     else:
         form = EtudiantForm()
@@ -170,9 +174,13 @@ def ville(request):
             except City.DoesNotExist:
                 newCity = City(city_name = ville, longitude = longitude, latitude = latitude, country_id = newCountry)
                 newCity.save()
-                return render(request, 'ville.html', {'form': VilleForm(), 'css': "good-query", 'response': 'Query OK: city added to database.'})
+                
+                # blank form
+                form = VilleForm()
+                
+                return render(request, 'ville.html', {'form': form, 'css': "good-query", 'response': 'City added to database.'})
             
-            return render(request, 'ville.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: matching city found in database.'})
+            return render(request, 'ville.html', {'form': form, 'css': "bad-query", 'response': 'Matching city found in database.'})
 
     else:
         form = VilleForm()
@@ -181,62 +189,62 @@ def ville(request):
 
 
 def stage(request):
+    """ requesting Student and City tables for the input lists """
+    etudiants = Student.objects.all()
+    villes = City.objects.all()
+    
+    student_list, city_list = [], []
+    
+    for e in etudiants:
+        # get values
+        studentId = e.student_id
+        studentEmail = e.email
+        
+        # append to list of values
+        student_list += [ ( studentId, studentEmail ) ]
+    
+    for v in villes:
+        # get values
+        cityId = v.city_id
+        cityName = v.city_name + ' (' + v.country_id.country_name + ')'
+        
+        # append to list of values
+        city_list += [ ( cityId, cityName ) ]
+    
+    """ manage internship form """
     if request.method == 'POST':
         # create a form instance and populate it
-        form = StageForm(request.POST)
-
+        form = StageForm(student_list, city_list, request.POST)
+        
         if form.is_valid():
-            # useless - just for good look
-            prenom = form.cleaned_data['prenom'].upper()
-            nom = form.cleaned_data['nom'].upper()
-            
             # process the data in form.cleaned_data as required
-            email = form.cleaned_data['email']
-            ville = form.cleaned_data['ville'].upper()
-            pays = form.cleaned_data['pays'].upper()
+            etudiantId = form.cleaned_data['etudiant']
+            villeId = form.cleaned_data['ville']
             debut = form.cleaned_data['debut']
             fin = form.cleaned_data['fin']
             
             # date boolean condition check
             if debut < fin:
+                # get student by Id
+                etudiant = Student.objects.get(student_id = etudiantId)
                 
-                # get student id
-                try:
-                    student = Student.objects.get(email = email)
+                # get city by Id
+                ville = City.objects.get(city_id = villeId)
                 
-                except Student.DoesNotExist:
-                    return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching student in database.'})
+                # create new internship
+                newInternship = Internship(student_id = etudiant, city_id = ville, date_start = debut, date_end = fin)
+                newInternship.save()
                 
-                # get country id
-                try:
-                    country = Country.objects.get(country_name = pays)
+                # blank form
+                form = StageForm(student_list, city_list)
                 
-                except Country.DoesNotExist:
-                    return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching country in database.'})
-                
-                # get city id
-                try:
-                    city = City.objects.get(city_name = ville, country_id = country)
-                
-                except City.DoesNotExist:
-                    return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching city in database.'})
-                
-                # create internship
-                try:
-                    newInternship = Internship.objects.get(student_id = student, city_id = city, date_start = debut, date_end = fin)
-                
-                except Internship.DoesNotExist:
-                    newInternship = Internship(student_id = student, city_id = city, date_start = debut, date_end = fin)
-                    newInternship.save()
-                    return render(request, 'stage.html', {'form': form, 'css': "good-query", 'response': 'Query OK: internship added to database.'})
-                
-                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: unicity constraint.'})
+                return render(request, 'stage.html', {'form': form, 'css': "good-query", 'response': 'Internship added to database.'})
             
             else:
-                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: did you invert your start and end dates?'})
+                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Did you invert your start and end dates?'})
     
     else:
-        form = StageForm()
+        form = StageForm(student_list, city_list)
 
     return render(request, 'stage.html', {'form': form})
 
