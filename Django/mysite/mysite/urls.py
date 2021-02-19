@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.index),
     path('index.html', views.index),
     path('annuaire.html', views.annuaire),
+    path('details.html/<int:idStudent>', views.details, name='details'),
     path('etudiant.html', views.etudiant),
     path('ville.html', views.ville),
     path('stage.html', views.stage),

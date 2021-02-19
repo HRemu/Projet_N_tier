@@ -127,4 +127,13 @@ td {
 	border: 1px solid #f1971e;
 }
 
+a.details {
+	color: inherit;
+    text-decoration: inherit;
+}
+
+a.details:hover {
+	color: #007bff;
+	text-decoration: underline;
+}
 

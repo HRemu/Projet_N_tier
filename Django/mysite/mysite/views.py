@@ -69,6 +69,11 @@ def annuaire(request):
     return render(request, 'annuaire.html', {'form': form})
 
 
+def details(request, idStudent):
+    # informations personnelles
+    return render(request, 'details.html')
+
+
 def etudiant(request):
     if request.method == 'POST':
         # create a form instance and populate it
