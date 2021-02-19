@@ -13,15 +13,15 @@ It was built using Django and MySQL, and only runs on the development server for
 
 ### Setting up the technical environment
 
-```sql
-mysql> CREATE DATABASE stageetudiant;
-```
+~~~~sql
+CREATE DATABASE stageetudiant;
+~~~~
 
 ```cmd
-C:/Users/{...}/Django/mysite> python manage.py makemigrations mysite  
-C:/Users/{...}/Django/mysite> python manage.py migrate mysite  
-C:/Users/{...}/Django/mysite> python manage.py loaddata mysite.json  
-C:/Users/{...}/Django/mysite> python manage.py migrate  
+C:/Users/{...}/Django/mysite> python manage.py makemigrations mysite
+C:/Users/{...}/Django/mysite> python manage.py migrate mysite
+C:/Users/{...}/Django/mysite> python manage.py loaddata mysite.json
+C:/Users/{...}/Django/mysite> python manage.py migrate
 ```
 
 
