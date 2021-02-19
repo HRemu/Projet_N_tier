@@ -193,7 +193,7 @@ def stage(request):
     etudiants = Student.objects.all().order_by('email')
     villes = City.objects.all().order_by('city_name')
     
-    student_list, city_list = [], []
+    student_list, city_list = [ ('default', '') ], [ ('default', '') ]
     
     for e in etudiants:
         # get values
@@ -223,8 +223,12 @@ def stage(request):
             debut = form.cleaned_data['debut']
             fin = form.cleaned_data['fin']
             
+            # selected values check
+            if etudiantId == 'default' or villeId == 'default':
+                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Please select values in the lists'})
+            
             # date boolean condition check
-            if debut < fin:
+            elif debut < fin:
                 # get student by Id
                 etudiant = Student.objects.get(student_id = etudiantId)
                 
