@@ -27,7 +27,8 @@ C:/Users/{...}/Django/mysite> python manage.py migrate
 
 ### Running the application once set up
 
-C:/Users/{...}/Django/mysite> python manage.py runserver _(then follow the instructions on the cmd)_
-
-
+```cmd
+C:/Users/{...}/Django/mysite> python manage.py runserver
+```
+_(then follow the instructions on the cmd)_
 
