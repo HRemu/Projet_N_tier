@@ -19,7 +19,7 @@ CREATE DATABASE stageetudiant;
 ~~~~
 
 * Command Prompt (in {...}/Django/mysite/)
-~~~~bash
+~~~~bat
 python manage.py makemigrations mysite
 python manage.py migrate mysite
 python manage.py loaddata mysite.json
@@ -30,7 +30,7 @@ python manage.py migrate
 ### Running the application once set up
 
 * Command Prompt (in {...}/Django/mysite/)
-~~~~bash
+~~~~bat
 python manage.py runserver
 ~~~~
 _(then follow the instructions on the cmd)_
