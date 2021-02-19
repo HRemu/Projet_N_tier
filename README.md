@@ -1,6 +1,6 @@
 # Projet N-tiers
 
-__Summary:__ This project aims at creating a fullstack application designed to manage students and their internships. It is built using Django and MySQL.
+__Summary:__ This project aims at creating a fullstack application designed to manage students and their internships. It is built using Django and MySQL.  
 __Authors:__ @ArnaudGuibert, @HRemu
 
 
