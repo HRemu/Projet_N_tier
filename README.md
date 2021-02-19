@@ -1,27 +1,21 @@
 # Projet N-tiers
 
-## MySQL Database Initialization
-
-- create a local MySQL database named stageetudiant using the MySQL CLI (for example):
-
-	- _'CREATE DATABASE stageetudiant;'_
+__Summary:__ This project aims at creating a fullstack application designed to manage students and their internships. It is built using Django and MySQL.
+__Authors:__ @ArnaudGuibert, @HRemu
 
 
-## Django Models Synchronization
+### Setting up the technical environment
 
-- go to __{..}/Django/mysite__ and run the following commands in order:
+mysql> CREATE DATABASE stageetudiant;
 
-	- _python manage.py makemigrations mysite_
-	- _python manage.py migrate mysite_
-	- _python manage.py loaddata mysite.json_
-	- _python manage.py migrate_
+C:/Users/{...}/Django/mysite> python manage.py makemigrations mysite
+C:/Users/{...}/Django/mysite> python manage.py migrate mysite
+C:/Users/{...}/Django/mysite> python manage.py loaddata mysite.json
+C:/Users/{...}/Django/mysite> manage.py migrate
+
+### Running the application once set up
+
+C:/Users/{...}/Django/mysite> python manage.py runserver _(then follow the instructions on the cmd)_
 
 
-## Launching the dev server
-
-- go to __{..}/Django/mysite__ and run the following command:
-
-	- _python manage.py runserver_
-
-- use your Web browser to go through the app
 
