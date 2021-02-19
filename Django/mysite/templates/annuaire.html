@@ -45,10 +45,12 @@
 	    <tbody>
           {% for item in elements %}
 		  <tr>
-            <td>{{ item.student_id }}</td>
-			<td>{{ item.fname }}</td>
+            <td>{{ item.fname }}</td>
             <td>{{ item.lname }}</td>
             <td>{{ item.email }}</td>
+			<td>
+			  <a class="details" href="{% url 'details' idStudent=item.student_id %}"> + 
+			</td>
           </tr>
 		  {% endfor %}
         </tbody>

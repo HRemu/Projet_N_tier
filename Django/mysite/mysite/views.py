@@ -69,6 +69,16 @@ def annuaire(request):
     return render(request, 'annuaire.html', {'form': form})
 
 
+def details(request, idStudent):
+    # personal data
+    etudiant = Student.objects.get(student_id = idStudent)
+    
+    # internships
+    stages = Internship.objects.filter(student_id = idStudent)
+    
+    return render(request, 'details.html', {'student': etudiant, 'internships': stages})
+
+
 def etudiant(request):
     if request.method == 'POST':
         # create a form instance and populate it

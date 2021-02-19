@@ -118,13 +118,22 @@ p.bad-query {
 }
 
 table {
-	margin: 0 auto 2%;
+	margin: 2% auto 2%;
 }
 
-td {
+td, th {
     text-align: center;
 	padding: 0 10px;
 	border: 1px solid #f1971e;
 }
 
+a.details {
+	color: inherit;
+    text-decoration: inherit;
+}
+
+a.details:hover {
+	color: #007bff;
+	text-decoration: underline;
+}
 
