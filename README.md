@@ -18,7 +18,7 @@ mysql> CREATE DATABASE stageetudiant;
 C:/Users/{...}/Django/mysite> python manage.py makemigrations mysite  
 C:/Users/{...}/Django/mysite> python manage.py migrate mysite  
 C:/Users/{...}/Django/mysite> python manage.py loaddata mysite.json  
-C:/Users/{...}/Django/mysite> manage.py migrate  
+C:/Users/{...}/Django/mysite> python manage.py migrate  
 
 
 ### Running the application once set up
