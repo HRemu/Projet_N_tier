@@ -190,8 +190,8 @@ def ville(request):
 
 def stage(request):
     """ requesting Student and City tables for the input lists """
-    etudiants = Student.objects.all()
-    villes = City.objects.all()
+    etudiants = Student.objects.all().order_by('email')
+    villes = City.objects.all().order_by('city_name')
     
     student_list, city_list = [], []
     
