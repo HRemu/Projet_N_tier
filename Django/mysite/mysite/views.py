@@ -40,22 +40,33 @@ def annuaire(request):
             nom = form.cleaned_data['nom'].upper()
             annee = form.cleaned_data['annee']
             
-            # make query to get students
-            try:
-                if annee != "":
-                    try:
-                        yearId = Gradyear.objects.get(label = annee)
-                    
-                    except:
-                        return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching gradyear in database.'})
-                    
-                    students = Student.objects.filter(Q(fname__contains = nom, gradyear_id = yearId) | Q(lname__contains = nom, gradyear_id = yearId))
-                
-                else:
-                    students = Student.objects.filter(Q(fname__contains = nom) | Q(lname__contains = nom))
+            # empty fields
+            if nom == "" and annee == "":
+                return render(request, 'annuaire.html', {'form': AnnuaireForm()})
             
-            except Student.DoesNotExist:
-                students = []
+            # 'nom' is empty
+            elif nom == "":
+                try:
+                    yearId = Gradyear.objects.get(label = annee)
+                
+                except:
+                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching gradyear in database.'})
+                
+                students = Student.objects.filter(gradyear_id = yearId)
+            
+            # 'annee' is empty
+            elif annee == "":
+                students = Student.objects.filter( Q(fname__contains = nom) | Q(lname__contains = nom) )
+            
+            # both are non-empty
+            else:
+                try:
+                    yearId = Gradyear.objects.get(label = annee)
+                
+                except:
+                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Query failed: no matching gradyear in database.'})
+                
+                students = Student.objects.filter( ( Q(fname__contains = nom) | Q(lname__contains = nom) ) & Q(gradyear_id = yearId) )
             
             # create HttpResponse
             header = 'Query OK: ' + str(len(students)) + ' student(s) found in the database.'

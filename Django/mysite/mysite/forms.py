@@ -8,7 +8,7 @@ year = RegexValidator(r'^\d{4}$', 'Saisissez une année valide.')
 
 class AnnuaireForm(forms.Form):
     # global search form
-    nom = forms.CharField(label = 'Nom / Prénom', max_length = 100, validators = [letters])
+    nom = forms.CharField(label = 'Nom / Prénom', required = False, max_length = 100, validators = [letters])
     annee = forms.CharField(label = 'Promo', required = False, max_length = 4, validators = [year])
 
 
