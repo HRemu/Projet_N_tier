@@ -13,8 +13,9 @@ It was built using Django and MySQL, and only runs on the development server for
 
 ### Setting up the technical environment
 
+* MySQL CLI
 ~~~~sql
-mysql> CREATE DATABASE stageetudiant;
+CREATE DATABASE stageetudiant;
 ~~~~
 
 ```cmd
