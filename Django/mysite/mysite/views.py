@@ -13,16 +13,32 @@ def index(request):
     worldMap = folium.Map(location = (30,0) , tiles = 'OpenStreetMap', zoom_start = 2, max_zoom = 2, min_zoom = 2)
     stages = Internship.objects.all()
     
+    markers = {}
     for i in range(len(stages)):
-        longitude = float(stages[i].city_id.longitude)
-        latitude = float(stages[i].city_id.latitude)
+        # get internship data
+        longitude = stages[i].city_id.longitude
+        latitude = stages[i].city_id.latitude
+        cityName = stages[i].city_id.city_name
         
+        # update 'markers' dictionary
+        if cityName not in list(markers.keys()):
+            markers[cityName] = [ latitude, longitude, 1 ] # 1 internship in this city
+        
+        else:
+            markers[cityName][2] += 1 # + 1 internship in this city
+    
+    for name in list(markers.keys()):
+        # get data on marker
+        data = markers[name]
+        
+        # draw circle object on map
         folium.CircleMarker(
-            location = ( latitude, longitude ),
+            location = ( data[0] , data[1] ),
+            popup = '<b>' + name + '</b> (' + str(data[2]) + ')',
             radius = 5,
-            color = 'crimson',
             fill = True,
-            fill_color = 'crimson'
+            color = 'green',
+            fillColor = 'green'
         ).add_to(worldMap)
     
     worldMap.save(outfile = 'static/map.html')
