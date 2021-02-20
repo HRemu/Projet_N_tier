@@ -66,7 +66,7 @@ def annuaire(request):
                     yearId = Gradyear.objects.get(label = annee)
                 
                 except:
-                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'No matching gradyear in database.'})
+                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Année absente de la base'})
                 
                 students = Student.objects.filter(gradyear_id = yearId)
             
@@ -80,12 +80,12 @@ def annuaire(request):
                     yearId = Gradyear.objects.get(label = annee)
                 
                 except:
-                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'No matching gradyear in database.'})
+                    return render(request, 'annuaire.html', {'form': form, 'css': "bad-query", 'response': 'Année absente de la base'})
                 
                 students = Student.objects.filter( ( Q(fname__contains = nom) | Q(lname__contains = nom) ) & Q(gradyear_id = yearId) )
             
             # create HttpResponse
-            header = str(len(students)) + ' student(s) found in the database.'
+            header = str(len(students)) + ' étudiant(s) trouvés dans la base'
             
             # return HttpResponse
             return render(request, 'annuaire.html', {'form': AnnuaireForm(), 'css': "good-query", 'response': header, 'elements': students})
@@ -137,9 +137,9 @@ def etudiant(request):
                 # blank form
                 form = EtudiantForm()
                 
-                return render(request, 'etudiant.html', {'form': form, 'css': "good-query", 'response': 'Student added to database.'})
+                return render(request, 'etudiant.html', {'form': form, 'css': "good-query", 'response': 'Etudiant ajouté dans la base'})
             
-            return render(request, 'etudiant.html', {'form': form, 'css': "bad-query", 'response': 'Matching student found in database.'})
+            return render(request, 'etudiant.html', {'form': form, 'css': "bad-query", 'response': 'Etudiant déjà présent dans la base'})
     
     else:
         form = EtudiantForm()
@@ -178,9 +178,9 @@ def ville(request):
                 # blank form
                 form = VilleForm()
                 
-                return render(request, 'ville.html', {'form': form, 'css': "good-query", 'response': 'City added to database.'})
+                return render(request, 'ville.html', {'form': form, 'css': "good-query", 'response': 'Ville ajoutée dans la base'})
             
-            return render(request, 'ville.html', {'form': form, 'css': "bad-query", 'response': 'Matching city found in database.'})
+            return render(request, 'ville.html', {'form': form, 'css': "bad-query", 'response': 'Ville déjà présente dans la base'})
 
     else:
         form = VilleForm()
@@ -225,7 +225,7 @@ def stage(request):
             
             # selected values check
             if etudiantId == 'default' or villeId == 'default':
-                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Please select values in the lists'})
+                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Sélectionnez des valeurs dans les listes'})
             
             # date boolean condition check
             elif debut < fin:
@@ -242,10 +242,10 @@ def stage(request):
                 # blank form
                 form = StageForm(student_list, city_list)
                 
-                return render(request, 'stage.html', {'form': form, 'css': "good-query", 'response': 'Internship added to database.'})
+                return render(request, 'stage.html', {'form': form, 'css': "good-query", 'response': 'Stage ajouté dans la base'})
             
             else:
-                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Did you invert your start and end dates?'})
+                return render(request, 'stage.html', {'form': form, 'css': "bad-query", 'response': 'Erreur sur la saisie des dates'})
     
     else:
         form = StageForm(student_list, city_list)
